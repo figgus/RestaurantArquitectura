@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RestaurantModelStoreContainer" CdmEntityContainer="RestaurantEntities1">
+    <EntitySetMapping Name="Mensajes">
+      <EntityTypeMapping TypeName="RestaurantModel.Mensajes">
+        <MappingFragment StoreEntitySet="Mensajes">
+          <ScalarProperty Name="idMensaje" ColumnName="idMensaje" />
+          <ScalarProperty Name="textoMensaje" ColumnName="textoMensaje" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="emailRemitente" ColumnName="emailRemitente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Noticias">
+      <EntityTypeMapping TypeName="RestaurantModel.Noticias">
+        <MappingFragment StoreEntitySet="Noticias">
+          <ScalarProperty Name="idNoticia" ColumnName="idNoticia" />
+          <ScalarProperty Name="FechaNoticia" ColumnName="FechaNoticia" />
+          <ScalarProperty Name="textoNoticia" ColumnName="textoNoticia" />
+          <ScalarProperty Name="idAutor" ColumnName="idAutor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="RestaurantModel.Productos">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+          <ScalarProperty Name="nombreProducto" ColumnName="nombreProducto" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="RestaurantModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="pnombre" ColumnName="pnombre" />
+          <ScalarProperty Name="snombre" ColumnName="snombre" />
+          <ScalarProperty Name="apat" ColumnName="apat" />
+          <ScalarProperty Name="amat" ColumnName="amat" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ventas">
+      <EntityTypeMapping TypeName="RestaurantModel.Ventas">
+        <MappingFragment StoreEntitySet="Ventas">
+          <ScalarProperty Name="idVenta" ColumnName="idVenta" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

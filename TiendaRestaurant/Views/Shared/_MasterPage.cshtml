@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+    <script src="~/Scripts/js/jquery.js"></script>
+    <script src="~/Scripts/js/jquery.glide.js"></script>
+    <link href="~/Scripts/css/style.css" rel="stylesheet" />
+    <link href="~/Scripts/css/animate.css" rel="stylesheet" />
+    <script src="~/Scripts/js/MyJQ.js"></script>
+    <script src="~/Scripts/js/jquery.localScroll.min.js"></script>
+    <script src="~/Scripts/js/jquery.scrollTo.min.js"></script>
+    <script src="~/Scripts/js/wow.min.js"></script>
+
+
+    <!-- scroll function -->
+    <script type="text/javascript">
+$(document).ready(function() {
+   $('#navigations').localScroll({duration:800});
+});
+    </script>
+
+
+    <script>
+new WOW().init();
+    </script>
+
+
+</head>
+<body>
+
+    <!--============ Navigation ============-->
+
+    <div class="headerwrapper">
+        <div id="header" class="container">
+            <div class="logo"> <a href="#"><img src="~/Scripts/images/LOGO.jpg" alt="logo" width="330" height="148"></a> </div> <!--end of Logo-->
+            <nav>
+                <ul id="navigations">
+                    <li><a href="@Url.Action("Index","Tienda")">HOME</a></li>
+                    <li> <a href="@Url.Action("Login","Tienda")">Iniciar session</a></li>
+                    <li><a href="@Url.Action("Registro","Tienda")">Registrarse</a></li>
+                    <li><a href="@Url.Action("Tienda","Tienda")">Tienda</a></li>
+                    <li><a href="@Url.Action("Contacto","Contacto")">Contacto</a></li>
+                </ul>
+            </nav>
+        </div> <!--end of header-->
+    </div> <!-- end of headerwrapper-->
+    <!--============ Slider ============-->
+
+
+    
+    <!--============ Contact us ============-->
+
+    
+    <div class="contactwrapper">
+        <div id="contactus" class="container">
+            @RenderBody()
+
+            </div>
+            <!--end of .staff-->
+
+            <img src="~/Scripts/images/popup2.png" width="487" height="137" class="secondpop" alt="pop">
+            <img src="~/Scripts/images/popup3.png" width="487" height="137" class="thirdpop" alt="pop">
+            <img src="~/Scripts/images/popup4.png" width="487" height="137" class="fourthpop" alt="pop">
+            <img src="~/Scripts/images/popup6.png" width="487" height="137" class="fifthpop" alt="pop">
+            <img src="~/Scripts/images/popup7.png" width="487" height="137" class="sixthpop" alt="pop">
+
+
+        </div>
+        <!--contactus class-->
+    </div> <!-- end of contact wrapper-->
+    <!--============ FOOTER ============-->
+
+
+    <div class="footerwrapper">
+        <footer class="container">
+            <div class="customerreview">
+                <h2>Customer Reviews</h2>
+                <div class="review">
+                    <p>
+                        <strong>&#8220; </strong>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor
+                        aliquet. Aenean 			            sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                        nec sagittis sem nibh id elit.
+                        Duis sed odio sit amet nibh vulputate  a ornare odio. Sed non  mauris vitae erat consequat
+                        <strong>&#8221;</strong>
+                    </p>
+
+                    <h4>- JOHN ALVES</h4>
+
+
+                </div> <!-- end of review-->
+
+                <div class="clearfix"></div>
+                <div class="line"></div>
+
+                <div class="review">
+                    <p>
+                        <strong>&#8220; </strong>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor
+                        aliquet. Aenean 			            sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                        nec sagittis sem nibh id elit.
+                        Duis sed odio sit amet nibh vulputate  a ornare odio. Sed non  mauris vitae erat consequat
+                        <strong>&#8221;</strong>
+                    </p>
+
+                    <h4>- CATHREINE JOHNES</h4>
+
+
+                </div> <!-- end of review-->
+
+
+
+
+
+            </div>
+            <div class="socialize">
+
+                <h2>Socialize</h2>
+                <div class="socialimgs">
+                    <a href="https://www.facebook.com/Mido.HHH">
+                        <img src="~/Scripts/images/fb.png" width="68" height="68" class="facebook"
+                             alt="fb">
+                    </a>
+                    <a href="https://twitter.com/Mido_A7X">
+                        <img src="~/Scripts/images/twitter.png" width="68" height="68" class="twitter"
+                             alt="twitter">
+                    </a>
+                </div> <!--end of social imgs-->
+
+            </div>
+
+
+            <div class="sendfeedback">
+                <h2>Send Feedback</h2>
+                <form>
+                    <h6>Your Name:</h6>
+                    <input type="text" class="yourname">
+                    <h6>Mobile Number :</h6>
+                    <input type="text" class="mobilenumber">
+                    <h6>Message :</h6>
+                    <textarea></textarea>
+
+                    <button>SUBMIT </button>
+
+
+
+                </form>
+
+            </div> <!-- end of feedback-->
+
+
+
+
+        </footer> <!-- end of footer-->
+
+    </div> <!-- end of footer-->
+    <!--============ COPYRIGHTS ============-->
+
+
+    <div class="copyrightswrapper">
+        <div id="copyrights" class="container">
+
+            <p>Copyright 2014 <a href="https://www.facebook.com/Mido.HHH"> Mohamed Sobhy </a> All Rights Reserved</p>
+
+        </div> <!-- end of copyrights-->
+    </div> <!-- end of website-->
+
+
+
+
+
+    <script type="text/javascript">
+    $('.sliderwrapper .slider').glide({
+		autoplay: 7000,
+		animationDuration: 3000,
+		arrows: true,
+
+
+
+		});
+
+    </script>
+
+    <script type="text/javascript">
+    $('.bestdisheswrapper .slider').glide({
+		autoplay: false,
+		animationDuration: 700,
+		arrows: true,
+		navigation:false,
+
+
+
+		});
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

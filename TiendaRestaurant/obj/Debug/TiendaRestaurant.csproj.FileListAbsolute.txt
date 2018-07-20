@@ -1,0 +1,103 @@
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\ApplicationInsights.config
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\TiendaRestaurant.dll.config
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\TiendaRestaurant.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\TiendaRestaurant.pdb
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Antlr3.Runtime.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.Web.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.ApplicationInsights.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Newtonsoft.Json.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Helpers.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Mvc.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Optimization.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Razor.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\System.Web.WebPages.Deployment.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\System.Web.WebPages.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\System.Web.WebPages.Razor.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\WebGrease.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Helpers.xml
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Mvc.xml
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Optimization.xml
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Razor.xml
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\System.Web.WebPages.xml
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\System.Web.WebPages.Deployment.xml
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\System.Web.WebPages.Razor.xml
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Antlr3.Runtime.pdb
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Newtonsoft.Json.xml
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.ApplicationInsights.xml
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.Web.xml
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.Helpers.resources.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.Mvc.resources.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.Optimization.resources.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.Razor.resources.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.WebPages.resources.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.csprojResolveAssemblyReference.cache
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.csproj.CoreCompileInputs.cache
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.dll
+C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.pdb
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.csproj.CoreCompileInputs.cache
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\ApplicationInsights.config
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\TiendaRestaurant.dll.config
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\TiendaRestaurant.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\TiendaRestaurant.pdb
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Antlr3.Runtime.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\EntityFramework.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\EntityFramework.SqlServer.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\GridMvc.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.Web.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.ApplicationInsights.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Newtonsoft.Json.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Helpers.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Mvc.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Optimization.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Razor.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\System.Web.WebPages.Deployment.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\System.Web.WebPages.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\System.Web.WebPages.Razor.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\WebGrease.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\EntityFramework.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\EntityFramework.SqlServer.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Helpers.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Mvc.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Optimization.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\System.Web.Razor.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\System.Web.WebPages.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\System.Web.WebPages.Deployment.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\System.Web.WebPages.Razor.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Antlr3.Runtime.pdb
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Newtonsoft.Json.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.ApplicationInsights.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.Web.xml
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.Helpers.resources.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.Mvc.resources.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.Optimization.resources.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.Razor.resources.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.WebPages.resources.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.pdb
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.csprojResolveAssemblyReference.cache

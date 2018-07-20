@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Contacto";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+<link href="~/Scripts/css/estilos.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="~/Scripts/css/estilos.css" rel="stylesheet" />
+<script type="text/javascript">
+    $(document).ready(
+        function () {
+            $("#msj").hide();
+            $("#contact-submit").click(
+                function () {
+                    $.ajax({
+                        url: '@Url.Action("EnviarMensaje", "Contacto")',
+                        type: 'POST',
+                        data: $("#contact").serialize(),
+                        success: function (result) {
+                            if (result === 'true') {
+                                window.location.href = "/Contacto/Contacto";
+                            }
+                            else {
+                                $("#msj").val(result);
+                                $("#msj").show(2000).delay(2000).fadeOut(2000);
+                            }
+                        }
+                    }
+                    );
+                }
+
+            );
+        }
+    );
+</script>
+<h2>Contacto</h2>
+
+<p>Aqui poner info del restaurant, direccion horarios, etc</p>
+<div class="container">
+    <form id="contact" action="" method="post">
+        <h3>Colorlib Contact Form</h3>
+        <h4>Contact us for custom quote</h4>
+        <fieldset>
+            <input placeholder="Email" id="mail" name="mail" type="text" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset>
+            <textarea placeholder="Que su mensaje no supere las 150 letras" name="texto" tabindex="5" ></textarea>
+        </fieldset>
+        <fieldset>
+            <button name="submit" type="button" id="contact-submit" class="btn btn-primary" data-submit="...Sending">Enviar</button>
+        </fieldset>
+        <div id="msj" class="alert alert-danger">
+
+        </div>
+    </form>
+    
+</div>

@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Carro";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+<script src="~/Scripts/js/customjs.js"></script>
+<link href="~/Scripts/css/custom.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<div class="container text-center">
+    <div class="col-md-5 col-sm-12">
+        <div class="bigcart"></div>
+        <h1>Este es tu carro de compras</h1>
+        <p>
+            Aqui se almacenaran los productos que has agregado a tu carro
+        </p>
+    </div>
+
+    <div class="col-md-7 col-sm-12 text-left">
+        <ul>
+            <li class="row list-inline columnCaptions">
+                <span>cant</span>
+                <span>Producto</span>
+                <span>Precio</span>
+            </li>
+            @{
+                List<TiendaRestaurant.Models.Productos> lista = (List<TiendaRestaurant.Models.Productos>)Session["carro"];
+                if (lista == null)
+                {
+                     <h3>Su carro esta vacio</h3>
+                }
+                else
+                {
+                    foreach (TiendaRestaurant.Models.Productos prod in lista)
+                    {
+                        <li class="row">
+                            <span class="quantity">1</span>
+                            <span class="itemName">@Html.Raw(prod.nombreProducto);</span>
+                            <span class="popbtn"><a class="arrow"></a></span>
+                            <span class="price">@Html.Raw("$" + prod.precio);</span>
+                        </li>
+                    }
+                }
+            }
+
+
+        </ul>
+    </div>
+    @{
+        if (lista != null)
+        {
+            <button type="button" class="btn btn-primary" id="btnAgregar">Agregar al carro</button>
+        }
+    }
+</div>
+<!-- The popover content -->
+<div id="popover" style="display: none">
+    <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+</div>
+

@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "DetallesProducto";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="~/Scripts/css/estilosTienda.css" rel="stylesheet" />
+<script type="text/javascript">
+    $(document).ready(
+        function () {
+            $("#btnAgregar").click(
+                function () {
+                    $.ajax({
+                        url: '@Url.Action("AgregarAlCarro", "Tienda")?id=@Request["id"]',
+                        type: 'POST',
+                        success: function (result) {
+                            alert(result);
+                            if (result === 'true') {
+                                window.location.href = "/Tienda/Carro";
+                            }
+                            else {
+                                alert("error encontrado");
+                            }
+                        }
+                    }
+                    );
+                }
+
+            );
+        }
+    );
+</script>
+
+
+@{
+    try
+    {
+        TiendaRestaurant.Models.Clases.OperacionesProductos oprod = new TiendaRestaurant.Models.Clases.OperacionesProductos();
+        TiendaRestaurant.Models.Productos prods = oprod.TraerPorId(int.Parse(Request["id"]));
+        <h2> @Html.Raw(prods.nombreProducto)</h2>
+        <h2>@Html.Raw(prods.precio)</h2>
+    }
+    catch (Exception)
+    {
+        Response.Redirect(Url.Action("Tienda", "Tienda"));
+    }
+
+
+}
+    <button type="button" class="btn btn-primary" id="btnAgregar">Agregar al carro</button>
+
+
