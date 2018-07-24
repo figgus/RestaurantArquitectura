@@ -1,48 +1,194 @@
-﻿@model IEnumerable<TiendaRestaurant.Models.Clases.GridTables>
-@using GridMvc.Html
-@{
+﻿@{
     ViewBag.Title = "PanelUsuario";
     Layout = "~/Views/Shared/_MasterPage.cshtml";
 }
-
-<h2>PanelUsuario</h2>
-
-<h3>Productos</h3>
-<div class="code-cut">
-    @Html.Grid(Model).Columns(Columns =>
-    {
-        Columns.Add(c => c.idProducto).Titled("Id").Filterable(true);
-        Columns.Add(c => c.nombreProducto).Titled("nombre").Filterable(true);
-        Columns.Add(c => c.precio).Titled("Precio").Filterable(true);
-        Columns.Add(c => c.stock).Titled("Stock").Filterable(true);
-        Columns.Add().Encoded(false).Sanitized(false).SetWidth(30).
-        RenderValueAs(o => Html.ActionLink("Edit", "Edit", new { id = o.idProducto }));
-    }).WithPaging(10).Sortable(true);
-</div>
-
-<h3>Usuarios</h3>
-<div class="code-cut">
-    @Html.Grid(Model).Columns(Columns =>
-            {
-                Columns.Add(d => d.usuario.idUsuario).Titled("Id").Filterable(true);
-                Columns.Add(d => d.usuario.nombreUsuario).Titled("Nombre").Filterable(true);
-                Columns.Add(d => d.usuario.password).Titled("password").Filterable(true);
-                Columns.Add(d => d.usuario.pnombre).Titled("Primer nombre").Filterable(true);
-                Columns.Add(d => d.usuario.snombre).Titled("Segundo nombre").Filterable(true);
-                Columns.Add(d => d.usuario.apat).Titled("Apellido paterno").Filterable(true);
-                Columns.Add(d => d.usuario.amat).Titled("Materno").Filterable(true);
-                Columns.Add(d => d.usuario.email).Titled("Mail").Filterable(true);
-                Columns.Add(d => d.usuario.fechaRegistro).Titled("fecha registro").Filterable(true);
-                Columns.Add(d => d.usuario.tipoUsuario).Titled("Tipo").Filterable(true);
-                Columns.Add().Encoded(false).Sanitized(false).SetWidth(30).
-                RenderValueAs(o => Html.ActionLink("Edit", "Edit", new { id = o.idProducto }));
-            }).WithPaging(10).Sortable(true);
-</div>
-
-
-
-<script src="~/Scripts/gridmvc.min.js"></script>
-<script src="~/Scripts/gridmvc.js"></script>
-<script src="~/Scripts/gridmvc.lang.ru.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="~/Scripts/css/estilosTabs.css" rel="stylesheet" />
+<script src="~/Scripts/js/jsTabs.js"></script>
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/js/jsMantenedor/jsDatatable.js"></script>
+
+
+<body>
+
+    <h2>PanelUsuario</h2>
+
+    <p>Seleccione la tablas a ver</p>
+
+
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Mensajes')">Mensajes</button>
+        <button class="tablinks" onclick="openCity(event, 'Noticias')">Noticias</button>
+        <button class="tablinks" onclick="openCity(event, 'Usuarios')">Usuarios</button>
+        <button class="tablinks" onclick="openCity(event, 'Productos')">Productos</button>
+        <button class="tablinks" onclick="openCity(event, 'Ventas')">Ventas</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="Mensajes" class="tabcontent">
+        <h3>Mensajes</h3>
+        <table id="TMensajes">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Texto mensaje</th>
+                    <th>fecha</th>
+                    <th>EmailRemitente</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    TiendaRestaurant.Models.Clases.OperacionesMensajes msj = new TiendaRestaurant.Models.Clases.OperacionesMensajes();
+                    foreach (TiendaRestaurant.Models.Mensajes dato in msj.TraerTodo())
+                    {
+                        <tr>
+                            <th>@dato.idMensaje</th>
+                            <th>@dato.textoMensaje</th>
+                            <th>@dato.fecha</th>
+                            <th>@dato.emailRemitente</th>
+                            <th>Acciones</th>
+                        </tr>
+                    }
+
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div id="Noticias" class="tabcontent">
+        <h3>Noticias</h3>
+        <table id="TNoticias">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>FechaNoticia</th>
+                    <th>textoNoticia</th>
+                    <th>idAutor</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+        TiendaRestaurant.Models.Clases.OperacionesNoticias noti = new TiendaRestaurant.Models.Clases.OperacionesNoticias();
+        foreach (TiendaRestaurant.Models.Noticias dato in noti.TraerTodo())
+        {
+            <tr>
+                <th>@dato.idAutor</th>
+                <th>@dato.FechaNoticia</th>
+                <th>@dato.textoNoticia</th>
+                <th>@dato.idAutor</th>
+                <th></th>
+            </tr>
+}
+
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div id="Usuarios" class="tabcontent">
+        <h3>Usuarios</h3>
+        <table id="TUsuarios" name="dataTable">
+            <thead>
+                <tr>
+                    <th>idUsuario</th>
+                    <th>nombreUsuario</th>
+                    <th>password</th>
+                    <th>pnombre</th>
+                    <th>snombre</th>
+                    <th>apat</th>
+                    <th>amat</th>
+                    <th>fechaRegistro</th>
+                    <th>tipoUsuario</th>
+                    <th>email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+        TiendaRestaurant.Models.Clases.OperacionesUsuarios users = new TiendaRestaurant.Models.Clases.OperacionesUsuarios();
+        foreach (TiendaRestaurant.Models.Usuarios dato in users.TraerTodo())
+        {
+            <tr>
+                <th>@dato.idUsuario</th>
+                <th>@dato.nombreUsuario</th>
+                <th>@dato.password</th>
+                <th>@dato.pnombre</th>
+                <th>@dato.snombre</th>
+                <th>@dato.apat</th>
+                <th>@dato.amat</th>
+                <th>@dato.fechaRegistro</th>
+                <th>@dato.tipoUsuario</th>
+                <th>@dato.email</th>
+                <th></th>
+            </tr>
+}
+
+                }
+            </tbody>
+        </table>
+    </div>
+    <div id="Productos" class="tabcontent">
+        <h3>Productos</h3>
+        <table id="TProductos">
+            <thead>
+                <tr>
+                    <th>idProducto</th>
+                    <th>nombreProducto</th>
+                    <th>precio</th>
+                    <th>stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+        TiendaRestaurant.Models.Clases.OperacionesProductos prod = new TiendaRestaurant.Models.Clases.OperacionesProductos();
+        foreach (TiendaRestaurant.Models.Productos dato in prod.TraerTodo())
+        {
+            <tr>
+                <th>@dato.idProducto</th>
+                <th>@dato.nombreProducto</th>
+                <th>@dato.precio</th>
+                <th>@dato.stock</th>
+                <th>Acciones</th>
+            </tr>
+}
+
+                }
+            </tbody>
+        </table>
+    </div>
+    <div id="Ventas" class="tabcontent">
+        <h3>Ventas</h3>
+        <table id="TVentas">
+            <thead>
+                <tr>
+                    <th>idVenta</th>
+                    <th>idUsuario</th>
+                    <th>idProducto</th>
+                    <th>fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+        TiendaRestaurant.Models.Clases.OperacionesVentas vent = new TiendaRestaurant.Models.Clases.OperacionesVentas();
+        foreach (TiendaRestaurant.Models.Ventas dato in vent.TraerTodo())
+        {
+            <tr>
+                <th>@dato.idVenta</th>
+                <th>@dato.idUsuario</th>
+                <th>@dato.idProducto</th>
+                <th>@dato.fecha</th>
+                <th></th>
+            </tr>
+}
+
+                }
+            </tbody>
+        </table>
+    </div>
+</body>

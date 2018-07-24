@@ -33,7 +33,6 @@ new WOW().init();
 </head>
 <body>
 
-    <!--============ Navigation ============-->
 
     <div class="headerwrapper">
         <div id="header" class="container">
@@ -41,7 +40,17 @@ new WOW().init();
             <nav>
                 <ul id="navigations">
                     <li><a href="@Url.Action("Index","Tienda")">HOME</a></li>
-                    <li> <a href="@Url.Action("Login","Tienda")">Iniciar session</a></li>
+                    @{
+                    try
+                    {
+                        string res = Session["idUsuario"].ToString();
+                        <li> <a href="@Url.Action("Carro","Tienda")">Carro</a></li>
+                    }
+                    catch (Exception ex)
+                    {
+                        <li> <a href="@Url.Action("Login","Tienda")">Iniciar session</a></li>
+                    }
+                    }
                     <li><a href="@Url.Action("Registro","Tienda")">Registrarse</a></li>
                     <li><a href="@Url.Action("Tienda","Tienda")">Tienda</a></li>
                     <li><a href="@Url.Action("Contacto","Contacto")">Contacto</a></li>
@@ -51,28 +60,26 @@ new WOW().init();
     </div> <!-- end of headerwrapper-->
     <!--============ Slider ============-->
 
-
-    
     <!--============ Contact us ============-->
 
-    
+
     <div class="contactwrapper">
         <div id="contactus" class="container">
             @RenderBody()
 
-            </div>
-            <!--end of .staff-->
-
-            <img src="~/Scripts/images/popup2.png" width="487" height="137" class="secondpop" alt="pop">
-            <img src="~/Scripts/images/popup3.png" width="487" height="137" class="thirdpop" alt="pop">
-            <img src="~/Scripts/images/popup4.png" width="487" height="137" class="fourthpop" alt="pop">
-            <img src="~/Scripts/images/popup6.png" width="487" height="137" class="fifthpop" alt="pop">
-            <img src="~/Scripts/images/popup7.png" width="487" height="137" class="sixthpop" alt="pop">
-
-
         </div>
-        <!--contactus class-->
-    </div> <!-- end of contact wrapper-->
+        <!--end of .staff-->
+
+        <img src="~/Scripts/images/popup2.png" width="487" height="137" class="secondpop" alt="pop">
+        <img src="~/Scripts/images/popup3.png" width="487" height="137" class="thirdpop" alt="pop">
+        <img src="~/Scripts/images/popup4.png" width="487" height="137" class="fourthpop" alt="pop">
+        <img src="~/Scripts/images/popup6.png" width="487" height="137" class="fifthpop" alt="pop">
+        <img src="~/Scripts/images/popup7.png" width="487" height="137" class="sixthpop" alt="pop">
+
+
+    </div>
+    <!--contactus class-->
+    <!-- end of contact wrapper-->
     <!--============ FOOTER ============-->
 
 
@@ -173,27 +180,27 @@ new WOW().init();
 
 
     <script type="text/javascript">
-    $('.sliderwrapper .slider').glide({
-		autoplay: 7000,
-		animationDuration: 3000,
-		arrows: true,
+        $('.sliderwrapper .slider').glide({
+            autoplay: 7000,
+            animationDuration: 3000,
+            arrows: true,
 
 
 
-		});
+        });
 
     </script>
 
     <script type="text/javascript">
-    $('.bestdisheswrapper .slider').glide({
-		autoplay: false,
-		animationDuration: 700,
-		arrows: true,
-		navigation:false,
+        $('.bestdisheswrapper .slider').glide({
+            autoplay: false,
+            animationDuration: 700,
+            arrows: true,
+            navigation: false,
 
 
 
-		});
+        });
 
 
     </script>

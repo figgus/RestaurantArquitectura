@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using TiendaRestaurant.Models;
 using TiendaRestaurant.Models.Clases;
+using System.Web.Security;
+using System.Security.Principal;
 
 namespace TiendaRestaurant.Controllers
 {
@@ -29,6 +31,7 @@ namespace TiendaRestaurant.Controllers
             return View();
         }
 
+        [Authorize(Roles = "cliente")]
         public ActionResult Carro()
         {
             ViewBag.Message = "Carro de compras";
@@ -43,28 +46,11 @@ namespace TiendaRestaurant.Controllers
             return View(ViewBag.list);
         }
 
+        [Authorize(Roles ="admin")]
         public ActionResult PanelUsuario()
         {
             ViewBag.Message = "Panel de usuario";
-            RestaurantEntities1 db = new RestaurantEntities1();
-            var result = (from c in db.Productos
-                          from d in db.Usuarios
-                          where c.idProducto>=d.idUsuario
-                          select new GridTables
-                          {
-                              idProducto = c.idProducto,
-                              precio = c.precio,
-                              nombreProducto = c.nombreProducto,
-                              stock = c.stock,
-                              usuario=new GridTables.user { amat=d.amat,apat=d.apat,email=d.email,fechaRegistro=d.fechaRegistro,idUsuario=d.idUsuario,nombreUsuario=d.nombreUsuario,password=d.password,pnombre=d.pnombre,snombre=d.snombre,tipoUsuario=d.tipoUsuario} 
-                          }).ToList();
-            //var res2 = (from e in db.Noticias
-            //            select new GridTables
-            //            {
-                            
-            //            }
-            //            );
-            return View(result);
+            return View();
         }
 
         public ActionResult DetallesProducto()
@@ -81,10 +67,49 @@ namespace TiendaRestaurant.Controllers
             OperacionesUsuarios opUsers=new OperacionesUsuarios();
             string username = Request["username"];
             string password = Request["password"];
-            if (opUsers.ExisteUsuario(username,password))
+            int id = 0;
+            int tipo = 0;
+            foreach (Usuarios user in opUsers.TraerTodo())
             {
+                if (user.nombreUsuario.Equals(username) && user.password.Equals(password))
+                {
+                    id = user.idUsuario;
+                    tipo = user.tipoUsuario;
+                    res = "true";
+                }
+            }
+            if (res.Equals("true"))
+            {
+                string identity = string.Empty;
+                FormsAuthentication.SetAuthCookie(username,false);
+                if (tipo==1)
+                {
+                    identity = "admin";
+                    if (!Roles.RoleExists(identity))
+                    {
+                        Roles.CreateRole(identity);
+                    }
+                    if (!Roles.IsUserInRole(username,identity)) {
+                        Roles.AddUserToRole(username, identity);
+                    }
+                }
+                else if(tipo==2)
+                {
+                    identity = "cliente";
+                    
+                    if (!Roles.RoleExists("cliente"))
+                    {
+                        Roles.CreateRole(identity);
+                    }
+                    if (!Roles.IsUserInRole(username, identity))
+                    {
+                        Roles.AddUserToRole(username, identity);
+                    }
+                }
+                
                 Session["validUser"] = true;
-                res ="true";
+                Session["idUsuario"] = id;
+                res ="true"+id;
             }
             return Json(res);
         }
@@ -137,6 +162,38 @@ namespace TiendaRestaurant.Controllers
             }
             return Json(res);
         }
+
+        [HttpPost]
+        public JsonResult Pagar()
+        {
+            string res = "false";
+            try
+            {
+                if (Session["carro"] == null)
+                {
+                    Session["carro"] = new List<Productos>();
+                    res = "no hay productos";
+                }
+                else
+                {
+                    List<Productos> lista = (List<Productos>)Session["carro"];
+                    OperacionesVentas oprod = new OperacionesVentas();
+                    int id = int.Parse(Session["idUsuario"].ToString());
+                    foreach (Productos prod in lista)
+                    {
+                        oprod.Guardar(id,prod.idProducto, DateTime.Now);
+                    }
+                    Session["carro"] = new List<Productos>();
+                    res = "true";
+                }
+            }
+            catch (Exception ex)
+            {
+                res = ex.Message;
+            }
+            return Json(res);
+        }
+
 
 
 

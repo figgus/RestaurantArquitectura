@@ -20,24 +20,13 @@ namespace TiendaRestaurant.Models
             this.Ventas = new HashSet<Ventas>();
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Productos(string nom,int price,int stock1)
+        public Productos(string nombreProducto,int precio, int stock)
         {
-            this.Ventas = new HashSet<Ventas>();
-            nombreProducto = nom;
-            precio = price;
-            stock = stock1;
+            this.nombreProducto = nombreProducto;
+            this.precio = precio;
+            this.stock = stock;
         }
-
-        public Productos(int id,string nom, int price, int stock1)
-        {
-            idProducto = id;
-            this.Ventas = new HashSet<Ventas>();
-            nombreProducto = nom;
-            precio = price;
-            stock = stock1;
-        }
-
+    
         public int idProducto { get; set; }
         public string nombreProducto { get; set; }
         public Nullable<int> precio { get; set; }

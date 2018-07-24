@@ -29,5 +29,19 @@ namespace TiendaRestaurant.Models.Clases
             }
             return res;
         }
+
+
+        public List<Mensajes> TraerTodo()
+        {
+            List<Mensajes> listaMensajes = new List<Mensajes>();
+            foreach (Mensajes prod in entidad.Mensajes)
+            {
+                listaMensajes.Add(prod);
+            }
+            return listaMensajes;
+        }
+
+
+
     }
 }

@@ -33,22 +33,21 @@ namespace TiendaRestaurant.Models.Clases
         }
 
 
-        public bool ExisteUsuario(string username,string password)
+        
+
+
+        public List<Usuarios> TraerTodo()
         {
-            bool res = false;
             List<Usuarios> listaUsuarios = new List<Usuarios>();
-            foreach (Usuarios users in entidad.Usuarios)
+            foreach (Usuarios prod in entidad.Usuarios)
             {
-                if (users.nombreUsuario==username && users.password==password)
-                {
-                    listaUsuarios.Add(users);
-                }
+                listaUsuarios.Add(prod);
             }
-            if (listaUsuarios.Count==1)
-            {
-                res = true;
-            }
-            return res;
+            return listaUsuarios;
         }
+
+
+
+
     }
 }

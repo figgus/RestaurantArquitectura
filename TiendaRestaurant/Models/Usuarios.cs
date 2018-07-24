@@ -14,6 +14,12 @@ namespace TiendaRestaurant.Models
     
     public partial class Usuarios
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Usuarios()
+        {
+            this.Noticias = new HashSet<Noticias>();
+            this.Ventas = new HashSet<Ventas>();
+        }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuarios(string nomU, string pass, string pnom, string snom, string appat, string apmat, DateTime fecha, int tipo, string mail)
@@ -31,6 +37,7 @@ namespace TiendaRestaurant.Models
             email = mail;
         }
 
+
         public Usuarios(int idUsuario, string nombreUsuario, string password, string pnombre, string snombre, string apat, string amat, DateTime fechaRegistro, int tipoUsuario, string email)
         {
             this.idUsuario = idUsuario;
@@ -44,16 +51,6 @@ namespace TiendaRestaurant.Models
             this.tipoUsuario = tipoUsuario;
             this.email = email;
         }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuarios()
-        {
-            this.Noticias = new HashSet<Noticias>();
-            this.Ventas = new HashSet<Ventas>();
-        }
-
-
-
 
         public int idUsuario { get; set; }
         public string nombreUsuario { get; set; }

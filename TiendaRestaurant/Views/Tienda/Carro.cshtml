@@ -8,9 +8,37 @@
 <link href="~/Scripts/css/custom.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#msjExito").hide();
+        $('#btnAgregar').click(
+            function () {
+                $.ajax({
+                        url: '@Url.Action("Pagar", "Tienda")',
+                        type: 'POST',
+                        success: function (result) {
+                            //alert(result);
+                            if (result === 'true') {
+                                $("#carrito").load(location.href + " #carrito>*", "");
+                                $("#msjExito").show(2000).delay(2000).fadeOut(2000);
+                                $("#btnAgregar").hide();
+                            }
+                            else {
+                                alert(result);
+                            }
+                        }
+                    }
+                    );
+            }
+        );
+    });
+</script>
 
 
 <div class="container text-center">
+    <div class="alert alert-success" id="msjExito">
+        Compra pagada con exito
+    </div>
     <div class="col-md-5 col-sm-12">
         <div class="bigcart"></div>
         <h1>Este es tu carro de compras</h1>
@@ -19,7 +47,7 @@
         </p>
     </div>
 
-    <div class="col-md-7 col-sm-12 text-left">
+    <div id="carrito" class="col-md-7 col-sm-12 text-left">
         <ul>
             <li class="row list-inline columnCaptions">
                 <span>cant</span>
@@ -37,6 +65,7 @@
                     foreach (TiendaRestaurant.Models.Productos prod in lista)
                     {
                         <li class="row">
+                            <input type="hidden" id="id" value="@prod.idProducto" />
                             <span class="quantity">1</span>
                             <span class="itemName">@Html.Raw(prod.nombreProducto);</span>
                             <span class="popbtn"><a class="arrow"></a></span>
@@ -52,7 +81,7 @@
     @{
         if (lista != null)
         {
-            <button type="button" class="btn btn-primary" id="btnAgregar">Agregar al carro</button>
+            <button type="button" class="btn btn-primary" id="btnAgregar">Pagar</button>
         }
     }
 </div>

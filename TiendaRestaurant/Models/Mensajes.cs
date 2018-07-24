@@ -14,19 +14,17 @@ namespace TiendaRestaurant.Models
     
     public partial class Mensajes
     {
+        public Mensajes()
+        {
+        }
+
+        public Mensajes(string textoMensaje, string fecha, string emailRemitente)
+        {
+
+        }
         public int idMensaje { get; set; }
         public string textoMensaje { get; set; }
         public string fecha { get; set; }
         public string emailRemitente { get; set; }
-
-
-        public Mensajes(string texto, string fecha1, string email)
-        {
-            textoMensaje = texto;
-            fecha = fecha1;
-            emailRemitente = email;
-        }
-
-
     }
 }

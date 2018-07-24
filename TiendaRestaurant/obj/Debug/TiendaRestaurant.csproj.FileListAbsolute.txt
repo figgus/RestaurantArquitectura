@@ -47,7 +47,6 @@ C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\obj\
 C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.csproj.CoreCompileInputs.cache
 C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.dll
 C:\Users\joaquin\Documents\proyectos .net\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.pdb
-C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.csproj.CoreCompileInputs.cache
 C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\ApplicationInsights.config
 C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\TiendaRestaurant.dll.config
 C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\TiendaRestaurant.dll
@@ -55,7 +54,6 @@ C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\
 C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Antlr3.Runtime.dll
 C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\EntityFramework.dll
 C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\EntityFramework.SqlServer.dll
-C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\GridMvc.dll
 C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -98,6 +96,7 @@ C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\
 C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.WebPages.resources.dll
 C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.csprojResolveAssemblyReference.cache
+C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.csproj.CoreCompileInputs.cache
 C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.dll
 C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.pdb
-C:\Users\joaquin\Desktop\paginaRestaurant\TiendaRestaurant\TiendaRestaurant\obj\Debug\TiendaRestaurant.csprojResolveAssemblyReference.cache
