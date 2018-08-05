@@ -1,23 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace TiendaRestaurant.Models.Clases
 {
     public class OperacionesVentas
     {
-        private RestaurantEntities1 entidad;
+        private RestaurantEntities2 entidad;
 
         public OperacionesVentas()
         {
-            entidad = new RestaurantEntities1();
+            entidad = new RestaurantEntities2();
+        }
+
+        public string Borrar(int id)
+        {
+            string res = "false";
+            try
+            {
+                Ventas ventas;
+                ventas = entidad.Ventas.FirstOrDefault(p => p.idVenta == id);
+                entidad.Ventas.Remove(ventas);
+                entidad.SaveChanges();
+                res = "true";
+            }
+            catch (Exception e)
+            {
+                res = e.Message;
+            }
+            return res;
+        }
+
+        public bool Modificar(int id, int idUsuFK, int idProductoFK, DateTime fecha)
+        {
+            bool res = false;
+            try
+            {
+                Ventas noti = entidad.Ventas.FirstOrDefault(a => a.idVenta == id);
+                noti.idUsuario = idUsuFK;
+                noti.idProducto = idProductoFK;
+                noti.fecha = fecha;
+                entidad.SaveChanges();
+                res = true;
+            }
+            catch (Exception e)
+            {
+                res = false;
+            }
+            return res;
         }
 
 
-        public string Guardar(int idUsuFK,int idProductoFK,DateTime fecha)
+        public bool Guardar(int idUsuFK,int idProductoFK,DateTime fecha)
         {
-            string res = "false";
+            bool res = false;
             try
             {
                 Ventas ventas = new Ventas();
@@ -26,11 +62,11 @@ namespace TiendaRestaurant.Models.Clases
                 ventas.fecha = fecha;
                 entidad.Ventas.Add(ventas);
                 entidad.SaveChanges();
-                res = "true";
+                res = true;
             }
             catch (Exception e)
             {
-                res = e.Message;
+                res = false;
             }
             return res;
         }

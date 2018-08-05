@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "AgregarVenta";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+<h2>AgregarVenta</h2>
+
+
+
+<script>
+    $(document).ready(
+        function () {
+            $("#msj").hide();
+            $("#btnGuardar").click(
+                function () {
+                    $.ajax({
+                        url: '@Url.Action("Guardar", "Mantenedor")',
+                        type: 'POST',
+                        data: $("#formulario").serialize(),
+                        success: function (result) {
+                            //alert(result);
+                            if (result === 'true') {
+                                $("#msj").show(2000).delay(2000).fadeOut(2000);
+                                setTimeout(function () { $(location).attr('href', '@Url.Action("PanelUsuario", "Tienda")'); }, 4000);
+                            }
+                            else {
+                                alert('problema');
+                            }
+                        }
+                    }
+                    );
+                }
+
+            );
+        }
+    );
+</script>
+<body>
+    <div id="msj" class="alert alert-success">
+        Datos Ingresados
+    </div>
+    <center>
+        <form id="formulario">
+            <input type="hidden" name="bd" id="bd" value="Ventas" />
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+
+                    <td>Id usuario comprador</td>
+                    <td>
+                        <select class="form-control" id="idUsuario" name="idUsuario">
+                            @{
+                                TiendaRestaurant.Models.Clases.OperacionesUsuarios opuser = new TiendaRestaurant.Models.Clases.OperacionesUsuarios();
+                                foreach (TiendaRestaurant.Models.Usuarios users in opuser.TraerTodo())
+                                {
+                                    <option value="@users.idUsuario">@users.nombreUsuario</option>
+                                }
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Id producto comprado
+                    </td>
+                    <td>
+                        <select class="form-control" id="idProducto" name="idProducto">
+                            @{
+                                TiendaRestaurant.Models.Clases.OperacionesProductos opod = new TiendaRestaurant.Models.Clases.OperacionesProductos();
+                                foreach (TiendaRestaurant.Models.Productos users in opod.TraerTodo())
+                                {
+                                    <option value="@users.idProducto">@users.nombreProducto</option>
+                                }
+                            }
+                        </select>
+                    </td>
+                </tr>
+                
+
+                <tr>
+                    <td></td>
+                    <td><input type="button" class="btn btn-primary" id="btnGuardar" name="btnGuardar" value="Guardar" /></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>

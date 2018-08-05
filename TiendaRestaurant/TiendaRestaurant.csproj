@@ -151,49 +151,48 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ContactoController.cs" />
+    <Compile Include="Controllers\MantenedorController.cs" />
     <Compile Include="Controllers\TiendaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BaseDatos.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BaseDatos.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BaseDatos.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BaseDatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BaseDatos.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BaseDatos.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Clases\OperacionesMensajes.cs" />
     <Compile Include="Models\Clases\OperacionesNoticias.cs" />
     <Compile Include="Models\Clases\OperacionesProductos.cs" />
-    <Compile Include="Models\Clases\OperacionesTablas.cs" />
     <Compile Include="Models\Clases\OperacionesUsuarios.cs" />
     <Compile Include="Models\Clases\OperacionesVentas.cs" />
     <Compile Include="Models\Mensajes.cs">
-      <DependentUpon>BaseDatos.tt</DependentUpon>
+      <DependentUpon>RestaurantEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Noticias.cs">
-      <DependentUpon>BaseDatos.tt</DependentUpon>
+      <DependentUpon>RestaurantEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Productos.cs">
-      <DependentUpon>BaseDatos.tt</DependentUpon>
+      <DependentUpon>RestaurantEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\seguridad\Roles.cs" />
-    <Compile Include="Models\Tablas.cs">
-      <DependentUpon>BaseDatos.tt</DependentUpon>
+    <Compile Include="Models\RestaurantEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RestaurantEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RestaurantEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>RestaurantEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuarios.cs">
-      <DependentUpon>BaseDatos.tt</DependentUpon>
+      <DependentUpon>RestaurantEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Ventas.cs">
-      <DependentUpon>BaseDatos.tt</DependentUpon>
+      <DependentUpon>RestaurantEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -364,15 +363,15 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Models\BaseDatos.Context.tt">
+    <Content Include="Models\RestaurantEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BaseDatos.edmx</DependentUpon>
-      <LastGenOutput>BaseDatos.Context.cs</LastGenOutput>
+      <DependentUpon>RestaurantEntities.edmx</DependentUpon>
+      <LastGenOutput>RestaurantEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\BaseDatos.tt">
+    <Content Include="Models\RestaurantEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BaseDatos.edmx</DependentUpon>
-      <LastGenOutput>BaseDatos.cs</LastGenOutput>
+      <DependentUpon>RestaurantEntities.edmx</DependentUpon>
+      <LastGenOutput>RestaurantEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\css\animate.css" />
     <Content Include="Scripts\css\CssDatables.css" />
@@ -471,6 +470,8 @@
     <Content Include="Scripts\images\char4.png" />
     <Content Include="Scripts\images\char5.png" />
     <Content Include="Scripts\images\char6.png" />
+    <Content Include="Scripts\images\delete.png" />
+    <Content Include="Scripts\images\edit.png" />
     <Content Include="Scripts\images\facebook.png" />
     <Content Include="Scripts\images\fb.png" />
     <Content Include="Scripts\images\fbhover.png" />
@@ -495,6 +496,7 @@
     <Content Include="Scripts\images\thumb1.png" />
     <Content Include="Scripts\images\thumb2.jpg" />
     <Content Include="Scripts\images\thumb3.png" />
+    <Content Include="Scripts\images\toggle01.png" />
     <Content Include="Scripts\images\twitter.png" />
     <Content Include="Scripts\images\twitterhover.png" />
     <Content Include="Scripts\images\www3.jpg" />
@@ -538,16 +540,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Models\BaseDatos.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BaseDatos.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\BaseDatos.edmx.diagram">
-      <DependentUpon>BaseDatos.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <EntityDeploy Include="Models\RestaurantEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RestaurantEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\RestaurantEntities.edmx.diagram">
+      <DependentUpon>RestaurantEntities.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Scripts\fonts\Economica-Bold.ttf" />
     <Content Include="Scripts\fonts\Economica-Regular.ttf" />
@@ -563,6 +565,16 @@
     <Content Include="Views\Contacto\Contacto.cshtml" />
     <Content Include="Views\Tienda\Carro.cshtml" />
     <Content Include="Views\Tienda\DetallesProducto.cshtml" />
+    <Content Include="Views\Mantenedor\AgregarMensaje.cshtml" />
+    <Content Include="Views\Mantenedor\AgregarProducto.cshtml" />
+    <Content Include="Views\Mantenedor\AgregarUsuario.cshtml" />
+    <Content Include="Views\Mantenedor\AgregarVenta.cshtml" />
+    <Content Include="Views\Mantenedor\AgregarNoticia.cshtml" />
+    <Content Include="Views\Mantenedor\EditarMensaje.cshtml" />
+    <Content Include="Views\Mantenedor\EditarNoticia.cshtml" />
+    <Content Include="Views\Mantenedor\EditarProducto.cshtml" />
+    <Content Include="Views\Mantenedor\EditarUsuario.cshtml" />
+    <Content Include="Views\Mantenedor\EditarVenta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

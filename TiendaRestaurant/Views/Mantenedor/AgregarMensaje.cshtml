@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "AgregarMensaje";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+<h2>AgregarMensaje</h2>
+<script>
+    $(document).ready(
+        function () {
+            $("#msj").hide();
+            $("#btnGuardar").click(
+                function () {
+                    $.ajax({
+                        url: '@Url.Action("Guardar", "Mantenedor")',
+                        type: 'POST',
+                        data: $("#formulario").serialize(),
+                        success: function (result) {
+                            //alert(result);
+                            if (result === 'true') {
+                                $("#msj").show(2000).delay(2000).fadeOut(2000);
+                                setTimeout(function () { $(location).attr('href', '@Url.Action("PanelUsuario", "Tienda")'); }, 4000);
+                            }
+                            else {
+                                alert('problema');
+                            }
+                        }
+                    }
+                    );
+                }
+
+            );
+        }
+    );
+</script>
+
+<center>
+    <div id="msj" class="alert alert-success">
+        Registro ingresado con exito
+    </div>
+    <form id="formulario">
+        <input type="hidden" name="bd" id="bd" value="Mensajes" />
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+
+                <td>textoMensaje</td>
+                <td><input class="form-control" type="text" id="textoMensaje" name="textoMensaje" value="" /></td>
+            </tr>
+            <tr>
+                <td>
+                    emailRemitente
+                </td>
+                <td>
+                    <input class="form-control" type="text" value="" id="emailRemitente" name="emailRemitente" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" class="btn btn-primary" id="btnGuardar" name="btnGuardar" value="Guardar" /></td>
+            </tr>
+        </table>
+    </form>
+</center>

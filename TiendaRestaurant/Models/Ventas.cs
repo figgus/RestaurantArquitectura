@@ -14,10 +14,14 @@ namespace TiendaRestaurant.Models
     
     public partial class Ventas
     {
+        public Ventas()
+        {
+        }
+
         public int idVenta { get; set; }
-        public int idUsuario { get; set; }
-        public int idProducto { get; set; }
-        public System.DateTime fecha { get; set; }
+        public Nullable<int> idUsuario { get; set; }
+        public Nullable<int> idProducto { get; set; }
+        public Nullable<System.DateTime> fecha { get; set; }
     
         public virtual Productos Productos { get; set; }
         public virtual Usuarios Usuarios { get; set; }

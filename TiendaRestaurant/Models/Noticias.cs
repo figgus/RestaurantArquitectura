@@ -14,10 +14,21 @@ namespace TiendaRestaurant.Models
     
     public partial class Noticias
     {
+        public Noticias()
+        {
+        }
+
+        public Noticias(DateTime? fechaNoticia, string textoNoticia, int? idAutor)
+        {
+            FechaNoticia = fechaNoticia;
+            this.textoNoticia = textoNoticia;
+            this.idAutor = idAutor;
+        }
+
         public int idNoticia { get; set; }
         public Nullable<System.DateTime> FechaNoticia { get; set; }
         public string textoNoticia { get; set; }
-        public int idAutor { get; set; }
+        public Nullable<int> idAutor { get; set; }
     
         public virtual Usuarios Usuarios { get; set; }
     }

@@ -20,8 +20,11 @@ namespace TiendaRestaurant.Models
 
         public Mensajes(string textoMensaje, string fecha, string emailRemitente)
         {
-
+            this.textoMensaje = textoMensaje;
+            this.fecha = fecha;
+            this.emailRemitente = emailRemitente;
         }
+
         public int idMensaje { get; set; }
         public string textoMensaje { get; set; }
         public string fecha { get; set; }

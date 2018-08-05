@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "AgregarNoticia";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+<h2>AgregarNoticia</h2>
+
+
+<h2>Noticia</h2>
+
+
+<script>
+    $(document).ready(
+        function () {
+            $("#msj").hide();
+            $("#btnGuardar").click(
+                function () {
+                    $.ajax({
+                        url: '@Url.Action("Guardar", "Mantenedor")',
+                        type: 'POST',
+                        data: $("#formulario").serialize(),
+                        success: function (result) {
+                            //alert(result);
+                            if (result === 'true') {
+                                $("#msj").show(2000).delay(2000).fadeOut(2000);
+                                setTimeout(function () { $(location).attr('href', '@Url.Action("PanelUsuario", "Tienda")'); }, 4000);
+                            }
+                            else {
+                                alert('problema');
+                            }
+                        }
+                    }
+                    );
+                }
+
+            );
+        }
+    );
+</script>
+
+<center>
+    <div id="msj" class="alert alert-success">
+        Registro ingresado con exito
+    </div>
+    <form id="formulario">
+        <input type="hidden" name="bd" id="bd" value="Noticias" />
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+
+                <td>Texto</td>
+                <td><input class="form-control" type="text" id="textoNoticia" name="textoNoticia" value="" /></td>
+            </tr>
+            <tr>
+                <td>
+                    Autor
+                </td>
+                <td>
+                    <select class="form-control" id="idAutor" name="idAutor">
+                        @{
+                            TiendaRestaurant.Models.Clases.OperacionesUsuarios opod = new TiendaRestaurant.Models.Clases.OperacionesUsuarios();
+                            foreach (TiendaRestaurant.Models.Usuarios users in opod.TraerTodo())
+                            {
+                                <option value="@users.idUsuario">@users.nombreUsuario</option>
+                            }
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" class="btn btn-primary" id="btnGuardar" name="btnGuardar" value="Guardar" /></td>
+            </tr>
+        </table>
+    </form>
+</center>

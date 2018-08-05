@@ -7,11 +7,11 @@ namespace TiendaRestaurant.Models.Clases
 {
     public class OperacionesProductos
     {
-        private RestaurantEntities1 entidad;
+        private RestaurantEntities2 entidad;
 
         public OperacionesProductos()
         {
-            entidad = new RestaurantEntities1();
+            entidad = new RestaurantEntities2();
         }
 
         public string Guardar(string nom, int price, int stock1)
@@ -21,6 +21,43 @@ namespace TiendaRestaurant.Models.Clases
             {
                 Productos prod = new Productos(nom,price,stock1);
                 entidad.Productos.Add(prod);
+                entidad.SaveChanges();
+                res = "true";
+            }
+            catch (Exception e)
+            {
+                res = e.Message;
+            }
+            return res;
+        }
+
+        public bool Modificar(int id, string nom, int price, int stock1)
+        {
+            bool res = false;
+            try
+            {
+                Productos noti = entidad.Productos.FirstOrDefault(a => a.idProducto == id);
+                noti.nombreProducto = nom;
+                noti.precio = price;
+                noti.stock = stock1;
+                entidad.SaveChanges();
+                res = true;
+            }
+            catch (Exception e)
+            {
+                res = false;
+            }
+            return res;
+        }
+
+        public string Borrar(int id)
+        {
+            string res = "false";
+            try
+            {
+                Productos prod;
+                prod = entidad.Productos.FirstOrDefault(p => p.idProducto == id);
+                entidad.Productos.Remove(prod);
                 entidad.SaveChanges();
                 res = "true";
             }

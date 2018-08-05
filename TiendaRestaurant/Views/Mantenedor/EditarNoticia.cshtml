@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "EditarNoticia";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+<h2>EditarNoticia</h2>
+<script>
+    $(document).ready(
+        function () {
+            $("#msj").hide();
+            $("#btnGuardar").click(
+                function () {
+                    $.ajax({
+                        url: '@Url.Action("Actualizar", "Mantenedor")',
+                        type: 'POST',
+                        data: $("#formulario").serialize(),
+                        success: function (result) {
+                            //alert(result);
+                            if (result === 'true') {
+                                $("#msj").show(2000).delay(2000).fadeOut(2000);
+                                setTimeout(function () { $(location).attr('href', '@Url.Action("PanelUsuario", "Tienda")'); }, 4000);
+                            }
+                            else {
+                                alert(result);
+                            }
+                        }
+                    }
+                    );
+                }
+
+            );
+        }
+    );
+</script>
+
+<center>
+    <div id="msj" class="alert alert-success">
+        Registro modificado con exito
+    </div>
+    <form id="formulario">
+        <input type="hidden" name="bd" id="bd" value="Noticias" />
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+
+                <td>IdNoticia</td>
+                <td><input class="form-control" type="text" id="idNoticia" name="idNoticia" value="@Request["id"]" readonly /></td>
+            </tr>
+            <tr>
+
+                <td>Fecha Noticia</td>
+                <td><input class="form-control" type="text" id="FechaNoticia" name="FechaNoticia" value="@Request["fecha"]" /></td>
+            </tr>
+            <tr>
+                <td>
+                    Texto de la noticia
+                </td>
+                <td>
+                    <input class="form-control" type="text" value="@Request["texto"]" id="textoNoticia" name="textoNoticia" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Autor de la noticia
+                </td>
+                <td>
+                    <input class="form-control" type="text" value="@Request["idAutor"]" id="idAutor" name="idAutor" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" class="btn btn-primary" id="btnGuardar" name="btnGuardar" value="Guardar" /></td>
+            </tr>
+        </table>
+    </form>
+</center>

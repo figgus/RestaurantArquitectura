@@ -14,19 +14,21 @@ namespace TiendaRestaurant.Models
     
     public partial class Productos
     {
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Productos()
         {
             this.Ventas = new HashSet<Ventas>();
         }
 
-        public Productos(string nombreProducto,int precio, int stock)
+        public Productos(string nombreProducto, int? precio, int? stock)
         {
             this.nombreProducto = nombreProducto;
             this.precio = precio;
             this.stock = stock;
         }
-    
+
         public int idProducto { get; set; }
         public string nombreProducto { get; set; }
         public Nullable<int> precio { get; set; }

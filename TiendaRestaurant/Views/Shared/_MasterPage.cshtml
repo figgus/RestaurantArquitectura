@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="~/Scripts/js/jquery.js"></script>
     <script src="~/Scripts/js/jquery.glide.js"></script>
     <link href="~/Scripts/css/style.css" rel="stylesheet" />
@@ -19,14 +20,14 @@
 
     <!-- scroll function -->
     <script type="text/javascript">
-$(document).ready(function() {
-   $('#navigations').localScroll({duration:800});
-});
+        $(document).ready(function () {
+            $('#navigations').localScroll({ duration: 800 });
+        });
     </script>
 
 
     <script>
-new WOW().init();
+        new WOW().init();
     </script>
 
 
@@ -41,17 +42,34 @@ new WOW().init();
                 <ul id="navigations">
                     <li><a href="@Url.Action("Index","Tienda")">HOME</a></li>
                     @{
-                    try
-                    {
-                        string res = Session["idUsuario"].ToString();
-                        <li> <a href="@Url.Action("Carro","Tienda")">Carro</a></li>
+                        try
+                        {
+                            string res = Session["idUsuario"].ToString();
+                            if (Roles.GetRolesForUser()[0] == "admin")
+                            {
+                                <li> <a href="@Url.Action("PanelUsuario", "Tienda")">Panel</a></li>
+                            }
+                            else
+                            {
+                                <li> <a href="@Url.Action("Carro", "Tienda")">Carro</a></li>
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            <li> <a href="@Url.Action("Login","Tienda")">Iniciar session</a></li>
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        <li> <a href="@Url.Action("Login","Tienda")">Iniciar session</a></li>
+                    @{
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            <li><a href="@Url.Action("CerrarSession","Tienda")">Cerrar sesion</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="@Url.Action("Registro","Tienda")">Registrarse</a></li>
+                        }
                     }
-                    }
-                    <li><a href="@Url.Action("Registro","Tienda")">Registrarse</a></li>
+
                     <li><a href="@Url.Action("Tienda","Tienda")">Tienda</a></li>
                     <li><a href="@Url.Action("Contacto","Contacto")">Contacto</a></li>
                 </ul>

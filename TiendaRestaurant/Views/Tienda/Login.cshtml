@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_MasterPage.cshtml";
 }
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(
@@ -17,7 +17,7 @@
                         type: 'POST',
                         data: $("#formulario").serialize(),
                         success: function (result) {
-                            alert(result);
+                            //alert(result);
                             if (result === 'true1') {
                                 window.location.href = "/Tienda/PanelUsuario";
                             }

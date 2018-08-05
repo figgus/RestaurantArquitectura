@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using TiendaRestaurant.Models;
 using TiendaRestaurant.Models.Clases;
 using System.Web.Security;
-using System.Security.Principal;
 
 namespace TiendaRestaurant.Controllers
 {
@@ -16,6 +13,7 @@ namespace TiendaRestaurant.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Pagina principal";
+            ViewBag.Notis = new OperacionesNoticias().TraerTodo();
             return View();
         }
 
@@ -74,7 +72,7 @@ namespace TiendaRestaurant.Controllers
                 if (user.nombreUsuario.Equals(username) && user.password.Equals(password))
                 {
                     id = user.idUsuario;
-                    tipo = user.tipoUsuario;
+                    tipo =  user.tipoUsuario.Value;
                     res = "true";
                 }
             }
@@ -109,7 +107,7 @@ namespace TiendaRestaurant.Controllers
                 
                 Session["validUser"] = true;
                 Session["idUsuario"] = id;
-                res ="true"+id;
+                res ="true"+tipo;
             }
             return Json(res);
         }
@@ -178,10 +176,13 @@ namespace TiendaRestaurant.Controllers
                 {
                     List<Productos> lista = (List<Productos>)Session["carro"];
                     OperacionesVentas oprod = new OperacionesVentas();
-                    int id = int.Parse(Session["idUsuario"].ToString());
+                    int id = (int) Session["idUsuario"];
                     foreach (Productos prod in lista)
                     {
-                        oprod.Guardar(id,prod.idProducto, DateTime.Now);
+                        if(!oprod.Guardar(id,prod.idProducto, DateTime.Now))
+                        {
+                            throw new Exception("Error al guardar");
+                        }
                     }
                     Session["carro"] = new List<Productos>();
                     res = "true";
@@ -192,6 +193,13 @@ namespace TiendaRestaurant.Controllers
                 res = ex.Message;
             }
             return Json(res);
+        }
+
+        [Authorize]
+        public void CerrarSession()
+        {
+            FormsAuthentication.SignOut();
+            Response.Redirect("/Tienda/Index");
         }
 
 

@@ -2,14 +2,45 @@
     ViewBag.Title = "PanelUsuario";
     Layout = "~/Views/Shared/_MasterPage.cshtml";
 }
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link href="~/Scripts/css/estilosTabs.css" rel="stylesheet" />
 <script src="~/Scripts/js/jsTabs.js"></script>
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="~/Scripts/js/jsMantenedor/jsDatatable.js"></script>
+<script type="text/javascript">
+    function Borrar(id,bd) {
+        var txt;
+        var r = confirm("Seguro que quiere borrar este registro");
+        
+        if (r == true) {
+            var parms = { 'id': id, 'bd': bd };
+            $.ajax({
+                        url: '@Url.Action("Borrar", "Mantenedor")',
+                        type: 'POST',
+                data: parms,
+                        success: function (result) {
+                            //alert(result);
+                            if (result === 'true') {
+                                $("#msj").show(2000).delay(2000).fadeOut(2000);
+                                $("#TMensajes").load(location.href + " #TMensajes>*", "");
+                                $("#TNoticias").load(location.href + " #TNoticias>*", "");
+                                $("#TUsuarios").load(location.href + " #TUsuarios>*", "");
+                                $("#TProductos").load(location.href + " #TProductos>*", "");
+                                $("#TVentas").load(location.href + " #TVentas>*", "");
 
+                            }
+                            
+                            else {
+                                $("#msj").show(2000).delay(2000).fadeOut(2000);
+                            }
+                        }
+                    }
+                    );
+        } 
+    }
+</script>
 
 <body>
 
@@ -29,6 +60,9 @@
     <!-- Tab content -->
     <div id="Mensajes" class="tabcontent">
         <h3>Mensajes</h3>
+        <a href="@Url.Action("AgregarMensaje", "Mantenedor")">
+            <img src="~/Scripts/images/toggle01.png" /> agregar nuevo registro
+        </a>
         <table id="TMensajes">
             <thead>
                 <tr>
@@ -49,7 +83,8 @@
                             <th>@dato.textoMensaje</th>
                             <th>@dato.fecha</th>
                             <th>@dato.emailRemitente</th>
-                            <th>Acciones</th>
+                            <th> <a href="@Url.Action("EditarMensaje", "Mantenedor")?id=@dato.idMensaje&mensaje=@dato.textoMensaje&fecha=@dato.fecha&email=@dato.emailRemitente" > <img src="~/Scripts/images/edit.png" /></a> 
+                            <a href="javascript:void(0)"onclick="Borrar(@dato.idMensaje,'Mensajes');"><img src="~/Scripts/images/delete.png" /></a>    </th>
                         </tr>
                     }
 
@@ -60,6 +95,9 @@
 
     <div id="Noticias" class="tabcontent">
         <h3>Noticias</h3>
+        <a href="@Url.Action("AgregarNoticia", "Mantenedor")">
+            <img src="~/Scripts/images/toggle01.png" /> agregar nuevo registro
+        </a>
         <table id="TNoticias">
             <thead>
                 <tr>
@@ -72,17 +110,17 @@
             </thead>
             <tbody>
                 @{
-        TiendaRestaurant.Models.Clases.OperacionesNoticias noti = new TiendaRestaurant.Models.Clases.OperacionesNoticias();
-        foreach (TiendaRestaurant.Models.Noticias dato in noti.TraerTodo())
-        {
-            <tr>
-                <th>@dato.idAutor</th>
-                <th>@dato.FechaNoticia</th>
-                <th>@dato.textoNoticia</th>
-                <th>@dato.idAutor</th>
-                <th></th>
-            </tr>
-}
+                    TiendaRestaurant.Models.Clases.OperacionesNoticias noti = new TiendaRestaurant.Models.Clases.OperacionesNoticias();
+                    foreach (TiendaRestaurant.Models.Noticias dato in noti.TraerTodo())
+                    {
+                        <tr>
+                            <th>@dato.idAutor</th>
+                            <th>@dato.FechaNoticia</th>
+                            <th>@dato.textoNoticia</th>
+                            <th>@dato.idAutor</th>
+                            <th> <a href="@Url.Action("EditarNoticia", "Mantenedor")?id=@dato.idAutor&fecha=@dato.FechaNoticia&texto=@dato.textoNoticia&idAutor=@dato.idAutor"> <img src="~/Scripts/images/edit.png" /></a> <a href="javascript:void(0)" onclick="Borrar(@dato.idNoticia,'Noticias');"><img src="~/Scripts/images/delete.png" /></a>    </th>
+                        </tr>
+                    }
 
                 }
             </tbody>
@@ -91,6 +129,9 @@
 
     <div id="Usuarios" class="tabcontent">
         <h3>Usuarios</h3>
+        <a href="@Url.Action("AgregarUsuario", "Mantenedor")">
+            <img src="~/Scripts/images/toggle01.png" /> agregar nuevo registro
+        </a>
         <table id="TUsuarios" name="dataTable">
             <thead>
                 <tr>
@@ -109,23 +150,23 @@
             </thead>
             <tbody>
                 @{
-        TiendaRestaurant.Models.Clases.OperacionesUsuarios users = new TiendaRestaurant.Models.Clases.OperacionesUsuarios();
-        foreach (TiendaRestaurant.Models.Usuarios dato in users.TraerTodo())
-        {
-            <tr>
-                <th>@dato.idUsuario</th>
-                <th>@dato.nombreUsuario</th>
-                <th>@dato.password</th>
-                <th>@dato.pnombre</th>
-                <th>@dato.snombre</th>
-                <th>@dato.apat</th>
-                <th>@dato.amat</th>
-                <th>@dato.fechaRegistro</th>
-                <th>@dato.tipoUsuario</th>
-                <th>@dato.email</th>
-                <th></th>
-            </tr>
-}
+                    TiendaRestaurant.Models.Clases.OperacionesUsuarios users = new TiendaRestaurant.Models.Clases.OperacionesUsuarios();
+                    foreach (TiendaRestaurant.Models.Usuarios dato in users.TraerTodo())
+                    {
+                        <tr>
+                            <th>@dato.idUsuario</th>
+                            <th>@dato.nombreUsuario</th>
+                            <th>@dato.password</th>
+                            <th>@dato.pnombre</th>
+                            <th>@dato.snombre</th>
+                            <th>@dato.apat</th>
+                            <th>@dato.amat</th>
+                            <th>@dato.fechaRegistro</th>
+                            <th>@dato.tipoUsuario</th>
+                            <th>@dato.email</th>
+                            <th> <a href="@Url.Action("EditarUsuario", "Mantenedor")?id=@dato.idUsuario&username=@dato.nombreUsuario&password=@dato.password&pnombre=@dato.pnombre&snombre=@dato.snombre&apat=@dato.apat&amat=@dato.amat&fecha=@dato.fechaRegistro&tipo=@dato.tipoUsuario&email=@dato.email"> <img src="~/Scripts/images/edit.png" /></a>  <a href="javascript:void(0)" onclick="Borrar(@dato.idUsuario,'Usuarios');"><img src="~/Scripts/images/delete.png" /></a>    </th>
+                        </tr>
+                    }
 
                 }
             </tbody>
@@ -133,6 +174,9 @@
     </div>
     <div id="Productos" class="tabcontent">
         <h3>Productos</h3>
+        <a href="@Url.Action("AgregarProducto", "Mantenedor")">
+            <img src="~/Scripts/images/toggle01.png" /> agregar nuevo registro
+        </a>
         <table id="TProductos">
             <thead>
                 <tr>
@@ -153,7 +197,7 @@
                 <th>@dato.nombreProducto</th>
                 <th>@dato.precio</th>
                 <th>@dato.stock</th>
-                <th>Acciones</th>
+                <th> <a href="@Url.Action("EditarProducto", "Mantenedor")?id=@dato.idProducto&nombre=@dato.nombreProducto&precio=@dato.precio&stock=@dato.stock"> <img src="~/Scripts/images/edit.png" /></a>  <a href="javascript:void(0)" onclick="Borrar(@dato.idProducto,'Productos');"><img src="~/Scripts/images/delete.png" /></a>    </th>
             </tr>
 }
 
@@ -163,6 +207,9 @@
     </div>
     <div id="Ventas" class="tabcontent">
         <h3>Ventas</h3>
+        <a href="@Url.Action("AgregarVenta", "Mantenedor")">
+            <img src="~/Scripts/images/toggle01.png" /> agregar nuevo registro
+        </a>
         <table id="TVentas">
             <thead>
                 <tr>
@@ -175,17 +222,17 @@
             </thead>
             <tbody>
                 @{
-        TiendaRestaurant.Models.Clases.OperacionesVentas vent = new TiendaRestaurant.Models.Clases.OperacionesVentas();
-        foreach (TiendaRestaurant.Models.Ventas dato in vent.TraerTodo())
-        {
-            <tr>
-                <th>@dato.idVenta</th>
-                <th>@dato.idUsuario</th>
-                <th>@dato.idProducto</th>
-                <th>@dato.fecha</th>
-                <th></th>
-            </tr>
-}
+                    TiendaRestaurant.Models.Clases.OperacionesVentas vent = new TiendaRestaurant.Models.Clases.OperacionesVentas();
+                    foreach (TiendaRestaurant.Models.Ventas dato in vent.TraerTodo())
+                    {
+                        <tr>
+                            <th>@dato.idVenta</th>
+                            <th>@dato.idUsuario</th>
+                            <th>@dato.idProducto</th>
+                            <th>@dato.fecha</th>
+                            <th> <a href="@Url.Action("EditarVenta", "Mantenedor")?id=@dato.idVenta&idUsu=@dato.idUsuario&idProd=@dato.idProducto&fecha=@dato.fecha"> <img src="~/Scripts/images/edit.png" /></a>  <a href="javascript:void(0)" onclick="Borrar(@dato.idVenta,'Ventas');"><img src="~/Scripts/images/delete.png" /></a>    </th>
+                        </tr>
+                    }
 
                 }
             </tbody>

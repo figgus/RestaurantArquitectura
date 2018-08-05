@@ -14,6 +14,8 @@ namespace TiendaRestaurant.Models
     
     public partial class Usuarios
     {
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuarios()
         {
@@ -21,26 +23,8 @@ namespace TiendaRestaurant.Models
             this.Ventas = new HashSet<Ventas>();
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuarios(string nomU, string pass, string pnom, string snom, string appat, string apmat, DateTime fecha, int tipo, string mail)
+        public Usuarios(string nombreUsuario, string password, string pnombre, string snombre, string apat, string amat, DateTime? fechaRegistro, int? tipoUsuario, string email)
         {
-            this.Noticias = new HashSet<Noticias>();
-            this.Ventas = new HashSet<Ventas>();
-            nombreUsuario = nomU;
-            password = pass;
-            pnombre = pnom;
-            snombre = snom;
-            apat = appat;
-            amat = apmat;
-            fechaRegistro = fecha;
-            tipoUsuario = tipo;
-            email = mail;
-        }
-
-
-        public Usuarios(int idUsuario, string nombreUsuario, string password, string pnombre, string snombre, string apat, string amat, DateTime fechaRegistro, int tipoUsuario, string email)
-        {
-            this.idUsuario = idUsuario;
             this.nombreUsuario = nombreUsuario;
             this.password = password;
             this.pnombre = pnombre;
@@ -59,8 +43,8 @@ namespace TiendaRestaurant.Models
         public string snombre { get; set; }
         public string apat { get; set; }
         public string amat { get; set; }
-        public System.DateTime fechaRegistro { get; set; }
-        public int tipoUsuario { get; set; }
+        public Nullable<System.DateTime> fechaRegistro { get; set; }
+        public Nullable<int> tipoUsuario { get; set; }
         public string email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
